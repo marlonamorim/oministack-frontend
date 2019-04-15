@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import './styles.css';
+//import './styles.css';
+import { Container, SubmitButton } from './styles'
 import logo from '../../assets/logo.svg'
 
 import api from '../../services/api'
@@ -12,7 +13,7 @@ export default class Main extends Component {
 
     handleSubmit = async e => {
         e.preventDefault();
-        
+
         const response = await api.post('boxes', {
             title: this.state.newBox
         })
@@ -25,15 +26,15 @@ export default class Main extends Component {
     }
     render() {
         return (
-            <div id='main-container'>
+            <Container>
                 <form onSubmit={this.handleSubmit}>
                     <img src={logo} alt=''></img>
                     <input placeholder='Criar um box'
                         value={this.state.newBox}
                         onChange={this.handleInputChange} />
-                    <button type='submit'>Criar</button>
+                    <SubmitButton color='#7159c1' type='submit'>Criar</SubmitButton>
                 </form>
-            </div>
+            </Container>
         )
     }
 }
